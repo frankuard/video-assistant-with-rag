@@ -15,26 +15,23 @@ def load_model():
     
     return _model
 
-def transcribe_chunk(chunk_path: str, translate: bool = False) -> str:
+def transcribe_chunk(chunk_path: str) -> str:
 
     model = load_model()
 
-    task = "translate" if translate else "transcribe"
-
-    result = model.transcribe(chunk_path, task = task)
+    result = model.transcribe(chunk_path)
 
     return result['text']
 
-def transcribe_all(chunks : list, translate : bool = False):
+def transcribe_all(chunks : list):
 
     full_transcript = ""
 
     for i, chunk in enumerate(chunks):
         print(f"Transcribing chunk {i+1}")
-        text = transcribe_chunk(chunk, translate= translate)
+        text = transcribe_chunk(chunk)
     
     print("Transciption Completed")
 
     return full_transcript
 
-    
