@@ -1,0 +1,28 @@
+# ---------- UI ----------
+streamlit>=1.35
+
+# ---------- Audio input & transcription ----------
+yt-dlp                  # download audio from YouTube URLs
+openai-whisper          # local Whisper transcription (also supports Hindi -> English translation)
+torch                   # Whisper / embeddings backend
+numpy
+langdetect              # detect Hindi vs English before translating
+
+# ---------- LLM orchestration (LangChain LCEL + Mistral) ----------
+langchain>=0.2
+langchain-core>=0.2
+langchain-community>=0.2
+langchain-text-splitters
+langchain-mistralai     # Mistral API integration
+
+# ---------- RAG pipeline ----------
+chromadb>=0.5
+langchain-chroma
+langchain-huggingface
+sentence-transformers   # HuggingFace embeddings (e.g. all-MiniLM-L6-v2)
+
+# ---------- Export (PDF / TXT) ----------
+fpdf2                   # PDF generation (TXT export needs no extra package)
+
+# ---------- Config ----------
+python-dotenv           # load MISTRAL_API_KEY from .env
