@@ -56,4 +56,11 @@ def process_input(source: str) -> list:
         print("Detected Youtube URL, Downloading audio...")
         wav_path = download_yt_audio(source)
     else:
-        
+        print("Detected local file. Converting to WAV...")
+        wav_path= convert_to_wav(source)
+    
+    print("Chunking audio...")
+    chunks = chunk_audio(wav_path)
+    print(f"Audio ready - {len(chunks)} chunk(s) created.")
+    return chunks
+    
