@@ -19,8 +19,7 @@ def transcribe_chunk(chunk_path: str) -> str:
 
     model = load_model()
 
-    result = model.transcribe(chunk_path)
-
+    result = model.transcribe(chunk_path, task="transcribe")
     return result['text']
 
 def transcribe_all(chunks : list):
@@ -28,10 +27,11 @@ def transcribe_all(chunks : list):
     full_transcript = ""
 
     for i, chunk in enumerate(chunks):
-        print(f"Transcribing chunk {i+1}")
+        print(f"Transcribing chunk {i+1}/{len(chunks)}")
         text = transcribe_chunk(chunk)
-    
-    print("Transciption Completed")
+        full_transcript += text + "\n"
 
-    return full_transcript
+    print("Transciption Completed")
+    return full_transcript.strip()
+    
 
