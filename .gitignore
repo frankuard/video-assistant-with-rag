@@ -8,4 +8,5 @@ venv/
 env/
 __pycache__/
 *.pyc
-.env
+.envdownloads/
+vector_db/
