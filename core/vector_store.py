@@ -29,7 +29,7 @@ def build_vector_store(transcript: str) -> Chroma:
     chunks = splitter.split_text(transcript)
 
     docs = [
-        Document(page_content=chunks, metadata = {'chunk_index': i})
+        Document(page_content=chunk, metadata = {'chunk_index': i})
         for i, chunk in enumerate(chunks)
 
     ]

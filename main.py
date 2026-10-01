@@ -4,7 +4,7 @@ from core.transcriber import transcribe_all
 from core.summaries import summarize, generate_title
 from core.extractor import extract_action_items, extract_key_decisions, extract_questions
 from core.rag_engine import build_rag_chain, ask_question
-
+import time
 
 load_dotenv()
 
@@ -18,12 +18,16 @@ def run_pipeline(source: str):
     print(f"Raw Transciption (first 300 characters) {transcript[:300]}")
 
     title = generate_title(transcript)
+    time.sleep(2)
 
+    time.sleep(2)
     summary = summarize(transcript)
 
     action_item = extract_action_items(transcript)
+    time.sleep(2)
 
     decisions = extract_key_decisions(transcript)
+    time.sleep(2)
 
     questions = extract_questions(transcript)
 
